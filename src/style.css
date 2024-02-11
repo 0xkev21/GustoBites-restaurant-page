@@ -1,0 +1,458 @@
+@font-face {
+    font-family: 'Giphurs';
+    src: url('./fonts/Giphurs-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Chillax';
+    src: url('./fonts/Chillax-Light.woff') format('woff'),
+    url('./fonts/Chillax-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Chillax';
+    src: url('./fonts/Chillax-Regular.woff') format('woff'),
+    url('./fonts/Chillax-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Chillax';
+    src: url('./fonts/Chillax-Medium.woff') format('woff'),
+    url('./fonts/Chillax-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Chillax';
+    src: url('./fonts/Chillax-Semibold.woff') format('woff'),
+    url('./fonts/Chillax-Semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Chillax';
+    src: url('./fonts/Chillax-Bold.woff') format('woff'),
+    url('./fonts/Chillax-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+} 
+
+:root {
+    --base-size: 8px;
+    --color-yellow: #FACB2E;
+    --color-dark-yellow: #866C20;
+    --color-orange: #FF5733;
+    --color-red: #C70039;
+    --color-black: #000000;
+    --color-white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+.typeface {
+    font-size: 5rem;
+    font-family: 'Giphurs';
+    font-weight: bold;
+}
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+h3 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+p {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+body {
+    font-family: 'Chillax';
+}
+
+button {
+    font-family: 'Chillax';
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.primary {
+    border: none;
+    background-color: var(--color-yellow);
+    padding: 12px 24px;
+    border-radius: 100px;
+}
+
+.secondary {
+    border: none;
+    background-color: var(--color-orange);
+    padding: 12px 24px;
+    border-radius: 100px;
+    color: var(--color-white);
+}
+
+.link {
+    border: none;
+    background-color: transparent;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+    margin-right: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .link {
+    color: white;
+}
+
+.heroSection {
+    background: url('./images/hero-section-bg.webp');
+    height: 100vh;
+    color: var(--color-white);
+    margin-top: -160px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.typeface {
+    position: relative;
+    top: calc(100vh - 2lh - 96px);
+    left: 96px;
+    width: 1212px;
+}
+
+.typeface .name {
+    position: relative;
+}
+
+.typeface .name::before {
+    content: '';
+    height: 1rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--color-white);
+    border-radius: 1rem;
+}
+
+section.culinaryExcellence {
+    display: flex;
+    margin: 144px 96px;
+    flex-direction: row;
+    gap: 80px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.culinaryExcellence::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 298px;
+    height: var(--base-size);
+    bottom: 0;
+    right: 0;
+    background-color: var(--color-orange);
+}
+
+.culinaryExcellenceContent {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.chefName {
+    color: var(--color-dark-yellow);
+}
+
+.everyOccasion {
+    height: 800px;
+    position: relative;
+    background: url('./images/family-dinner.webp');
+    background-size: cover;
+}
+
+.everyOccasionContent {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+    position: absolute;
+    width: 667px;
+    left: 96px;
+    bottom: 96px;
+    color: white;
+}
+
+.menus {
+    margin: 144px 96px;
+}
+
+.menus h2 {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.menusContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+}
+
+.cardsContainer {
+    position: relative;
+    height: 493px;
+    width: 563px;
+}
+
+.cardsContainer > * {
+    position: absolute;
+}
+
+.cardsContainer > img:nth-child(1) {
+    top: 36px;
+    right: 0;
+    z-index: 3;
+}
+
+.cardsContainer > img:nth-child(2) {
+    bottom: 0;
+    right: 69px;
+    z-index: 2;
+}
+
+.cardsContainer > img:nth-child(3) {
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.menusContent {
+    width: 600px;
+    flex-grow: 1;
+}
+
+.menusContent p {
+    margin-bottom: 24px;
+}
+
+.square {
+    width: 106px;
+    aspect-ratio: 1/1;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-orange);
+}
+
+.makeReservations {
+    background: url('./images/friends-darken.webp');
+    color: white;
+    display: flex;
+    padding: 144px 96px;
+    gap: 80px;
+    align-items: center;
+}
+
+.makeReservationsContent p {
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+.stayConnected {
+    padding: 96px 96px;
+    display: grid;
+    grid-template-areas: "stayConnected socialIcons"
+                        "newsletter newsletter";
+    gap: 80px;
+    place-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.stayConnectedContainer {
+    grid-area: "stayConnected";
+}
+
+.stayConnectedContent {
+    width: 536px;
+}
+
+.socialIcons {
+    display: flex;
+    gap: 36px;
+    width: 360px;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-area: "socialIcons";
+}
+
+.stayConnected h2, .newsletterContainer h3 {
+    margin-bottom: 32px;
+}
+
+.emailInput {
+    width: 600px;
+    font-size: 20px;
+    font-family: 'Chillax';
+    padding: 12px 12ch 12px 24px;
+    margin-right: calc(-12ch + 2px);
+    border-radius: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.yellowCircle, .orangeCircle {
+    width: 304px;
+    height: 304px;
+    border-radius: 50%;
+}
+.orangeCircle {
+    background-color: var(--color-orange);
+    position: absolute;
+    top: -10px;
+    left: -150px;
+}
+.yellowCircle {
+    background-color: var(--color-yellow);
+    position: absolute;
+    top: 255px;
+    right: -150px;
+}
+
+.quote {
+    text-align: center;
+    height: 669px;
+    background: url('./images/quote-section-bg.webp');
+    padding: 96px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-size: cover;
+}
+
+.quote blockquote {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    color: var(--color-white);
+    font-size: 20px;
+}
+
+.homePage > footer {
+    padding: 16px;
+    display: flex;
+    color: var(--color-white);
+    background-color: var(--color-orange);
+    gap: 40px;
+}
+
+.address {
+    margin-right: auto;
+}
+
+.credits {
+    display: flex;
+    padding: 96px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: url('./images/hotel-wallpaper-pattern.webp');
+    background-repeat: repeat;
+    background-position: center;
+    height: 70vh;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    z-index: -1;
+}
+
+.homePage {
+    background-color: var(--color-white);
+    margin-bottom: 70vh;
+}
+
+.sitemap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.credits .link {
+    color: var(--color-black);
+    text-decoration: none;
+}
+
+.creditsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: center;
+}
+
+.developer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+}
+
+.creditsLink {
+    color: var(--color-dark-yellow);
+    font-size: 60px;
+    font-weight: 300;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.devSocialIcons {
+    display: flex;
+    gap: 24px;
+}
+
+.socialIcons svg, .devSocialIcons svg {
+    cursor: pointer;
+}
