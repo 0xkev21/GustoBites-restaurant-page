@@ -117,7 +117,7 @@ function getHomePage () {
             <q>At Gusto Bites, we don't just serve food; we craft experiences.<br>
             Welcome to a world where every bite tells a story, and every moment is savored.</q>
 
-            <footer>Bon Appétit! <em>The Gusto Bites Team</em></footer>
+            <p>Bon Appétit! <em>The Gusto Bites Team</em></p>
         </blockquote>
     </section>
     <footer>

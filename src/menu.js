@@ -1,6 +1,13 @@
 import capreseCrostini from './images/caprese-crostini.webp';
+import truffleParmesanFries from './images/truffle-parmesan-fries.webp';
+import mangoAvocadoSalad from './images/mango-avocado-salad.webp';
+import quinoaGreekSalad from './images/quinoa-greek-salad.webp';
+import gourmetBurger from './images/gourmet-burger.webp';
+import lemonHerbGrilledChicken from './images/lemon-herb-grilled-chicken.webp';
 import pestoShrimpLinguine from './images/pesto-shrimp-linguine.webp';
+import darkChocolateRaspberryTart from './images/dark-chocolate-raspberry-tart.webp';
 import tiramisuDelight from './images/tiramisu-delight.webp';
+
 
 const menu = {
     appetizers: [
@@ -8,45 +15,47 @@ const menu = {
             name: "Caprese Crostini",
             description: "Sliced cherry tomatoes, fresh mozzarella, and basil drizzled with balsamic glaze, served on crispy baguette slices.",
             price: 9.99,
+            image: capreseCrostini,
         },
         {
             name: "Truffle Parmesan Fries",
             description: "Crispy shoestring fries tossed with truffle oil and grated Parmesan, served with a side of garlic aioli.",
             price: 8.99,
+            image: truffleParmesanFries,
         }
     ],
     salads: [
         {
             name: "Mango Avocado Salad",
             description: "Mixed greens, ripe mango slices, avocado, red onion, and feta cheese, dressed with a honey lime vinaigrette.",
-            category: "Salads",
             price: 11.99,
+            image: mangoAvocadoSalad,
         },
         {
             name: "Quinoa Greek Salad",
             description: "Quinoa, cherry tomatoes, cucumber, Kalamata olives, and feta cheese, tossed in a lemon herb dressing.",
-            category: "Salads",
             price: 10.99,
+            image: quinoaGreekSalad,
         },
     ],
     mainCourses: [
         {
             name: "Gourmet Burger",
             description: "Juicy Angus beef patty topped with caramelized onions, Swiss cheese, arugula, and truffle aioli on a brioche bun. Served with truffle Parmesan fries.",
-            category: "Main Courses",
             price: 15.99,
+            image: gourmetBurger,
         },
         {
             name: "Lemon Herb Grilled Chicken",
             description: "Tender chicken breast marinated in lemon and herbs, grilled to perfection, and served with garlic mashed potatoes and sautéed green beans.",
-            category: "Main Courses",
             price: 16.99,
+            image: lemonHerbGrilledChicken,
         },
         {
             name: "Pesto Shrimp Linguine",
             description: "Succulent shrimp tossed in basil pesto with cherry tomatoes, pine nuts, and Parmesan cheese over a bed of linguine.",
-            category: "Main Courses",
             price: 18.99,
+            image: pestoShrimpLinguine,
         },
     ],
     desserts: [
@@ -54,11 +63,13 @@ const menu = {
             name: "Dark Chocolate Raspberry Tart",
             description: "Rich dark chocolate ganache on a buttery tart crust, topped with fresh raspberries and a raspberry coulis.",
             price: 8.99,
+            image: darkChocolateRaspberryTart,
         },
         {
             name: "Tiramisu Delight",
             description: "Layers of espresso-soaked ladyfingers and mascarpone cream, dusted with cocoa powder and served with a drizzle of chocolate sauce.",
             price: 7.99,
+            image: tiramisuDelight,
         },
     ]
 };
@@ -77,17 +88,83 @@ function createCard(item) {
     const itemDescription = document.createElement('p');
     itemDescription.textContent = item.description;
     const itemPrice = document.createElement('p');
-    itemPrice.textContent = item.price;
+    itemPrice.textContent = '$' + item.price;
+    const itemImage = document.createElement('img');
+    itemImage.setAttribute('alt', item.name);
+    itemImage.src = item.image;
 
     yellowRectangle.appendChild(itemDescription);
     yellowRectangle.appendChild(itemPrice);
 
+    orangeRectangle.appendChild(itemImage);
+
     cardContainer.appendChild(itemName);
     cardContainer.appendChild(yellowRectangle);
     cardContainer.appendChild(orangeRectangle);
+
+    return cardContainer;
 }
 
-function getMenu () {
+
+export default function getMenuPage () {
     const menuPage = document.createElement('div');
-    menuPage.classList.add('menu');
+    menuPage.classList.add('menuPage');
+
+    const appetizers = document.createElement('div');
+    appetizers.classList.add('menuContainer');
+
+    menu.appetizers.forEach(item => {
+        const menuItem = createCard(item);
+        appetizers.appendChild(menuItem);
+    });
+
+    const salads = document.createElement('div');
+    salads.classList.add('menuContainer');
+
+    menu.salads.forEach(item => {
+        const menuItem = createCard(item);
+        salads.appendChild(menuItem);
+    });
+
+    const mainCourses = document.createElement('div');
+    mainCourses.classList.add('menuContainer');
+
+    menu.mainCourses.forEach(item => {
+        const menuItem = createCard(item);
+        mainCourses.appendChild(menuItem);
+    });
+
+    const desserts = document.createElement('div');
+    desserts.classList.add('menuContainer');
+
+    menu.desserts.forEach(item => {
+        const menuItem = createCard(item);
+        desserts.appendChild(menuItem);
+    });
+
+    menuPage.innerHTML = `
+        <div class="categories">
+            <h3>Appetizers</h3>
+            <div class="appetizer menuContainer">${appetizers.innerHTML}</div>
+            <h3>Salads</h3>
+            <div class="appetizer menuContainer">${salads.innerHTML}</div>
+            <h3>Main Courses</h3>
+            <div class="appetizer menuContainer">${mainCourses.innerHTML}</div>
+            <h3>Desserts</h3>
+            <div class="appetizer menuContainer">${desserts.innerHTML}</div>
+        </div>
+        <footer>
+            <p class="address">
+                Gusto Bites Restaurant, 123 Main Street Cityville, Stateburg, 98765
+            </p>
+            <p class="phone">
+                Phone: <a href="tel:+1(555)123-4567" class="link">(555) 123-4567</a>
+            </p>
+            <p class="email">
+                Email: <a href="mailto:not-real-email@gustobites.com" class="link">not-real-email@gustobites.com</a>
+            </p>
+        </footer>
+    `
+
+    return menuPage;
 }
