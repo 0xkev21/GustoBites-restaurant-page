@@ -3,16 +3,9 @@ import capreseCrostini from './images/caprese-crostini.webp';
 import pestoShrimpLinguine from './images/pesto-shrimp-linguine.webp';
 import tiramisuDelight from './images/tiramisu-delight.webp';
 import burgerHome from './images/burger-home.webp';
-import gustoBitesBlack from './images/gusto-bites-logo(black).png';
 import gustoBitesTransparent from './images/gusto-bites-logo(transparent).png';
 
 function getHomePage () {
-    const header = document.querySelector('header');
-    const logoBlack = new Image();
-    logoBlack.src = gustoBitesBlack;
-    logoBlack.alt = "Gusto Bites Logo";
-    header.insertBefore(logoBlack, header.children[0]);
-
     const homePage = document.createElement('div');
     homePage.classList.add('homePage');
     homePage.innerHTML = `

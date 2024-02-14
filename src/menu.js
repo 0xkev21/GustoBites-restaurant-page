@@ -101,10 +101,9 @@ function createCard(item) {
     cardContainer.appendChild(itemName);
     cardContainer.appendChild(yellowRectangle);
     cardContainer.appendChild(orangeRectangle);
-
+    
     return cardContainer;
 }
-
 
 export default function getMenuPage () {
     const menuPage = document.createElement('div');
@@ -113,7 +112,7 @@ export default function getMenuPage () {
     const appetizers = document.createElement('div');
     appetizers.classList.add('menuContainer');
 
-    menu.appetizers.forEach(item => {
+    menu.appetizers.forEach(function (item) {
         const menuItem = createCard(item);
         appetizers.appendChild(menuItem);
     });
