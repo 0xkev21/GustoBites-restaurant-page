@@ -2,6 +2,7 @@ import './style.css';
 import {getHomePage, getCreditsSection} from './home.js';
 import getMenuPage from './menu.js';
 import getAboutPage from './about.js';
+import {getContactPage, addScrollAnimation} from './contact.js';
 
 import gustoBitesBlack from './images/gusto-bites-logo(black).png';
 
@@ -37,6 +38,12 @@ nav.addEventListener('click', (e) => {
             window.scroll(0, 0);
             break;
             
+        case 'Contact':
+            console.log('contact is clicked');
+            document.body.className = 'contactActive';
+            displayContactPage();
+            window.scroll(0, 0);
+            break;
     }
 });
 
@@ -90,6 +97,15 @@ function displayAboutPage () {
     // clear content div
     content.innerHTML = '';
     content.appendChild(getAboutPage());
+}
+
+function displayContactPage() {
+    checkHeaderLogo();
+
+    // clear content div
+    content.innerHTML = '';
+    content.appendChild(getContactPage());
+    addScrollAnimation();
 }
 
 // Dynamic nav bar

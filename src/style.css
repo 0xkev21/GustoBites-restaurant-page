@@ -83,6 +83,10 @@ h4 {
     font-size: 1.5rem;
     font-weight: bold;
 }
+h6 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
 p {
     font-size: 1.25rem;
     font-weight: 400;
@@ -160,7 +164,9 @@ nav.active .link {
     transition: color 300ms ease-in;
 }
 
-.menuActive nav > button.link, .aboutActive nav > button.link {
+.menuActive nav > button.link,
+.aboutActive nav > button.link,
+.contactActive nav > button.link {
     color: var(--color-black);
     font-weight: 500;
 }
@@ -683,7 +689,7 @@ footer {
     color: var(--color-orange);
 }
 
-section [class$="Content"] {
+#ourStory section [class$="Content"] {
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -809,9 +815,77 @@ section.thankYou {
     margin: 40px 0;
 }
 
-.chefInvitation {
+.chefInvitation, .contactLookForward {
     padding: 64px 0;
     margin: auto;
     text-align: center;
     width: 50%;
+}
+
+.contactContainer {
+    padding: 0 96px;
+}
+
+.contactPage h2 {
+    text-align: center;
+    margin: 48px 0;
+}
+
+.contactContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.contactContentContainer {
+    max-width: 880px;
+}
+
+.contactContainer h6 {
+    margin-top: 32px;
+}
+
+.scrollerContainer {
+    flex-basis: calc(320px + 48px);
+    padding: 0 24px;
+    background-color: var(--color-orange);
+    height: calc(100vh + 80px);
+    overflow: scroll;
+}
+
+.scrollerContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollerContainer[data-animated="true"] {
+    overflow: hidden;
+}
+
+.scrollingMenu {
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    width: 100%;
+}
+
+.scrollingMenu img {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.scrollerContainer[data-animated] .scrollingMenu {
+    animation: scroll 16s linear infinite;
+    animation-direction: forwards;
+}
+
+.contactContentContainer a {
+    color: var(--color-dark-yellow);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes scroll {
+    to {
+        transform: translateY(-50%);
+    }
 }
