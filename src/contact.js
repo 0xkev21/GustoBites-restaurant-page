@@ -50,7 +50,7 @@ function getContactPage () {
                     <a href="mailto:info@gustobites.com">info@gustobites.com</a>
                 </p>
             
-                <h6>Openning Hours:</h6>
+                <h6>Opening Hours:</h6>
                 <p>
                     Monday - Friday: 10:00 AM - 10:00 PM<br>
                     Saturday - Sunday: 1:00 PM - 10:00 PM

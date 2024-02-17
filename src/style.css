@@ -166,7 +166,8 @@ nav.active .link {
 
 .menuActive nav > button.link,
 .aboutActive nav > button.link,
-.contactActive nav > button.link {
+.contactActive nav > button.link,
+.reserveActive nav > button.link {
     color: var(--color-black);
     font-weight: 500;
 }
@@ -882,6 +883,68 @@ section.thankYou {
     color: var(--color-dark-yellow);
     text-decoration: none;
     cursor: pointer;
+}
+
+.reservePage h2 {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.reservePage form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+.openingHours {
+    display: flex;
+    gap: 32px;
+    justify-content: space-between;
+    background-color: var(--color-yellow);
+    padding: 16px;
+    border-radius: 16px;
+    width: 45vw;
+}
+
+.inputsContainer {
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.inputsContainer div {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.inputsContainer label {
+    flex: 1;
+    flex-shrink: 0;
+    flex-basis: 10ch;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.inputsContainer input {
+    flex: 3;
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: 1px solid gray;
+    height: 2lh;
+    font-size: 1.25rem;
+}
+
+.inputsContainer input:placeholder {
+    font-size: 1.25rem;
+}
+
+.reservePage footer {
+    margin-top: 64px;
 }
 
 @keyframes scroll {

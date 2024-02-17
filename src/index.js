@@ -3,6 +3,7 @@ import {getHomePage, getCreditsSection} from './home.js';
 import getMenuPage from './menu.js';
 import getAboutPage from './about.js';
 import {getContactPage, addScrollAnimation} from './contact.js';
+import getReservePage from './reserve.js';
 
 import gustoBitesBlack from './images/gusto-bites-logo(black).png';
 
@@ -42,6 +43,13 @@ nav.addEventListener('click', (e) => {
             console.log('contact is clicked');
             document.body.className = 'contactActive';
             displayContactPage();
+            window.scroll(0, 0);
+            break;
+
+        case 'Reservations':
+            console.log('reservations is clicked');
+            document.body.className = 'reserveActive';
+            displayReservePage();
             window.scroll(0, 0);
             break;
     }
@@ -91,6 +99,7 @@ function displayMenuPage() {
     });
 }
 
+// About Page
 function displayAboutPage () {
     checkHeaderLogo();
     
@@ -99,6 +108,7 @@ function displayAboutPage () {
     content.appendChild(getAboutPage());
 }
 
+// Contact Page
 function displayContactPage() {
     checkHeaderLogo();
 
@@ -106,6 +116,15 @@ function displayContactPage() {
     content.innerHTML = '';
     content.appendChild(getContactPage());
     addScrollAnimation();
+}
+
+// Reserve Page
+function displayReservePage() {
+    checkHeaderLogo();
+
+    // clear content div
+    content.innerHTML = '';
+    content.appendChild(getReservePage());
 }
 
 // Dynamic nav bar
