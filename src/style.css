@@ -160,7 +160,7 @@ nav.active .link {
     transition: color 300ms ease-in;
 }
 
-.menuActive nav > button.link {
+.menuActive nav > button.link, .aboutActive nav > button.link {
     color: var(--color-black);
     font-weight: 500;
 }
@@ -175,18 +175,18 @@ nav.active .link {
     position: relative;
 }
 
-.typeface {
+.homePage .typeface {
     position: relative;
     top: calc(100vh - 2lh - 96px);
     left: 96px;
     width: 1212px;
 }
 
-.typeface .name {
+.homePage .typeface .name {
     position: relative;
 }
 
-.typeface .name::before {
+.homePage .typeface .name::before {
     content: '';
     height: 1rem;
     width: 100%;
@@ -488,6 +488,11 @@ footer {
     margin-right: 96px;
 }
 
+.menuPage h2 {
+    text-align: center;
+    margin-top: 32px;
+}
+
 .menuPage h3 {
     margin-top: 80px;
     margin-bottom: 1.5rem;
@@ -526,7 +531,7 @@ footer {
     height: 384px;
     overflow: hidden;
     position: relative;
-    background-color: var(--color-brown);
+    background-color: var(--color-black);
     color: var(--color-white);
     border-radius: 0 56px 0 56px;
     cursor: pointer;
@@ -617,7 +622,196 @@ footer {
     color: var(--color-black);
 }
 
-
 .menuPage footer {
     margin-top: 96px;
+}
+
+.itemPrice {
+    padding: 5px 10px;
+    border: 2px solid var(--color-red);
+    border-radius: 1rem;
+}
+
+.itemPrice:hover {
+    color: white;
+    background-color: var(--color-red);
+}
+
+#ourStory {
+    padding: 48px 96px;
+}
+
+#ourStory .storyWelcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.storyWelcomeAssets {
+    position: relative;
+}
+
+.storyWelcomeAssets::before {
+    content: '';
+    background-color: var(--color-yellow);
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    border-radius: 40px;
+}
+
+#ourStory .gustoBitesLogoBlack {
+    position: absolute;
+    top: 16px;
+    left: -8px;
+    opacity: 75%;
+}
+
+#ourStory section[class^="story"] {
+    margin-bottom: 96px;
+    display: flex;
+    gap: 80px;
+}
+
+#ourStory section[class^="story"]:nth-of-type(2n+3) {
+    flex-direction: row-reverse;
+}
+
+#ourStory h4 {
+    color: var(--color-orange);
+}
+
+section [class$="Content"] {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: sticky;
+    top: 68px;
+    align-self: flex-start;
+    margin: 40px 0;
+}
+
+#ourStory .typeface {
+    color: var(--color-orange);
+}
+
+#ourStory .bigWord {
+    color: var(--color-orange);
+    font-size: 2.25rem;
+    font-weight: 600;
+}
+
+.founderName {
+    color: var(--color-dark-yellow);
+}
+
+.restaurantName {
+    color: var(--color-orange);
+}
+
+#ourStory section.storyCommunityConnection {
+    height: 80vh;
+    background: url('./images/friends-darken.webp');
+    color: var(--color-white);
+    background-size: cover;
+    justify-content: center;
+    margin-bottom: 0 !important;
+}
+
+.storyCommunityContent {
+    position: static !important;
+    width: 640px;
+    align-self: center !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+section.thankYou {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: var(--color-dark-yellow);
+    color: var(--color-white);
+}
+
+.svgWave {
+    width: 100%;
+    margin-top: 96px;
+    margin-bottom: -40px;
+}
+
+#chefProfile {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+#chefProfile h2 {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.chefProfileContainer {
+    display: flex;
+    gap: 80px;
+    padding: 0 96px;
+    align-items: flex-start;
+}
+
+.chefPortraitContainer {
+    position: sticky;
+    top: 72px;
+    display: flex;
+    align-items: center;
+    width: 616px;
+}
+
+.chefPortraitContainer > div.yellowRectangle {
+    width: 534px;
+    height: 310px;
+    border-radius: 80px 144px 20px 40px;
+    position: absolute;
+    top: calc(100% - 310px);
+    left: calc(100% - 534px);
+}
+.chefPortraitContainer > div.orangeRectangle {
+    width: 470px;
+    height: 476px;
+    border-radius: 40px 170px 150px 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.chefPortraitContainer img {
+    position: relative;
+    z-index: 2;
+}
+
+.chefProfileContainer h4 {
+    color: var(--color-yellow);
+}
+
+.chefProfileContent {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 50vh;
+}
+
+.chefProfileContent [class^="chef"] {
+    display: flex;
+    height: 600px;
+    gap: 32px;
+    flex-direction: column;
+    margin: 40px 0;
+}
+
+.chefInvitation {
+    padding: 64px 0;
+    margin: auto;
+    text-align: center;
+    width: 50%;
 }

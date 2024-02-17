@@ -7,7 +7,7 @@ import lemonHerbGrilledChicken from './images/lemon-herb-grilled-chicken.webp';
 import pestoShrimpLinguine from './images/pesto-shrimp-linguine.webp';
 import darkChocolateRaspberryTart from './images/dark-chocolate-raspberry-tart.webp';
 import tiramisuDelight from './images/tiramisu-delight.webp';
-
+import getFooter from './footer.js';
 
 const menu = {
     appetizers: [
@@ -89,6 +89,7 @@ function createCard(item) {
     itemDescription.textContent = item.description;
     const itemPrice = document.createElement('p');
     itemPrice.textContent = '$' + item.price;
+    itemPrice.className = 'itemPrice';
     const itemImage = document.createElement('img');
     itemImage.setAttribute('alt', item.name);
     itemImage.src = item.image;
@@ -142,6 +143,7 @@ export default function getMenuPage () {
     });
 
     menuPage.innerHTML = `
+        <h2>Explore our Menu</h2>
         <div class="categories">
             <h3>Appetizers</h3>
             <div class="appetizer menuContainer">${appetizers.innerHTML}</div>
@@ -152,18 +154,9 @@ export default function getMenuPage () {
             <h3>Desserts</h3>
             <div class="appetizer menuContainer">${desserts.innerHTML}</div>
         </div>
-        <footer>
-            <p class="address">
-                Gusto Bites Restaurant, 123 Main Street Cityville, Stateburg, 98765
-            </p>
-            <p class="phone">
-                Phone: <a href="tel:+1(555)123-4567" class="link">(555) 123-4567</a>
-            </p>
-            <p class="email">
-                Email: <a href="mailto:not-real-email@gustobites.com" class="link">not-real-email@gustobites.com</a>
-            </p>
-        </footer>
-    `
+    `;
+
+    menuPage.appendChild(getFooter());
 
     return menuPage;
 }
