@@ -157,7 +157,7 @@ function getCreditsSection() {
                 </svg>
             </div>
         </div>
-        <div class="creditsLink">Credits & Thanks To:</div>
+        <a class="creditsLink" href="./credits/index.html">Credits & Thanks To:</a>
     </div>
     `;
     return creditsSection;
