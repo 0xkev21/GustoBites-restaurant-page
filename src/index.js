@@ -17,6 +17,11 @@ document.body.className = 'homeActive';
 
 // change pages dynamically when buttons' click
 nav.addEventListener('click', (e) => {
+    navigateOnClick(e);
+});
+
+// navigate on click
+function navigateOnClick(e) {
     switch (e.target.textContent) {
         case 'Home':
             console.log('HOme is clicked');
@@ -53,7 +58,7 @@ nav.addEventListener('click', (e) => {
             window.scroll(0, 0);
             break;
     }
-});
+}
 
 // Home Page
 function displayHomePage() {
@@ -72,6 +77,11 @@ function displayHomePage() {
 
     content.appendChild(getHomePage());
     content.appendChild(getCreditsSection());
+
+    const sitemap = content.querySelector('.sitemap');
+    sitemap.addEventListener('click', (e) => {
+        navigateOnClick(e);
+    });
 }
 
 // Menu Page

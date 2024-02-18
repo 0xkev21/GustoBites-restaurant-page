@@ -118,11 +118,13 @@ button {
     color: var(--color-white);
 }
 
-.link {
+.link{
     border: none;
     background-color: transparent;
     color: var(--color-white);
     text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 header {
@@ -449,7 +451,7 @@ footer {
 }
 
 .credits .link {
-    color: var(--color-black);
+    color: var(--color-dark-yellow);
     text-decoration: none;
 }
 
@@ -465,6 +467,10 @@ footer {
     flex-direction: column;
     gap: 24px;
     align-items: center;
+}
+
+.developer .link {
+    color: var(--color-dark-yellow);
 }
 
 .creditsLink {

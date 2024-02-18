@@ -126,11 +126,11 @@ function getCreditsSection() {
     <img src="${gustoBitesTransparent}" alt="Gusto Bites Logo">
     <div class="sitemap">
         <button type="button" class="link">Home</button>
-        <button type="button" class="link">Menus</button>
+        <button type="button" class="link">Menu</button>
         <button type="button" class="link">About</button>
         <button type="button" class="link">Contact</button>
         <button type="button" class="link">Reservations</button>
-        <button type="button" class="link">Feedback</button>
+        <a href="mailto:info@gustobites.com" class="link">Feedback</a>
     </div>
     <div class="creditsContainer">
         <div class="developer">
