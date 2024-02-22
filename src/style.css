@@ -63,7 +63,7 @@ html {
 }
 
 .typeface {
-    font-size: 5rem;
+    font-size: clamp(1.5rem, 6vw, 5rem);
     font-family: 'Giphurs';
     font-weight: bold;
 }
@@ -108,6 +108,13 @@ button {
     background-color: var(--color-yellow);
     padding: 12px 24px;
     border-radius: 100px;
+    transition: background-color 200ms ease-in,
+    color 200ms ease-in;
+}
+
+.primary:hover {
+    background-color: var(--color-dark-yellow);
+    color: var(--color-white);
 }
 
 .secondary {
@@ -116,6 +123,11 @@ button {
     padding: 12px 24px;
     border-radius: 100px;
     color: var(--color-white);
+    transition: background-color 200ms ease-in;
+}
+
+.secondary:hover {
+    background-color: var(--color-red);
 }
 
 .link{
@@ -123,8 +135,25 @@ button {
     background-color: transparent;
     color: var(--color-white);
     text-decoration: none;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
+    position: relative;
+    --link-color: var(--color-white);
+}
+
+.link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0.2rem;
+    border-radius: 2rem;
+    background-color: var(--link-color);
+    transform: scaleX(0);
+    transition: transform 200ms ease-in;
+}
+.link:hover::before {
+    transform: scaleX(1);
 }
 
 header {
@@ -139,6 +168,7 @@ header {
 
 img[alt = "Gusto Bites Logo"] {
     padding-left: 1.5rem;
+    width: min(30vw, 160px);
 }
 
 nav {
@@ -163,7 +193,16 @@ nav.active {
 
 nav.active .link {
     color: var(--color-black);
+    --link-color: var(--color-black);
     transition: color 300ms ease-in;
+}
+
+/* nav .link.active::before {
+    transform: scaleX(1);
+} */
+
+.hamburger-menu {
+    display: none;
 }
 
 .menuActive nav > button.link,
@@ -187,8 +226,8 @@ nav.active .link {
 .homePage .typeface {
     position: relative;
     top: calc(100vh - 2lh - 96px);
-    left: 96px;
-    width: 1212px;
+    left: min(96px, 5vw);
+    width: min(90vw, 1212px);
 }
 
 .homePage .typeface .name {
@@ -197,7 +236,7 @@ nav.active .link {
 
 .homePage .typeface .name::before {
     content: '';
-    height: 1rem;
+    height: min(1vw, 1rem);
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -207,21 +246,25 @@ nav.active .link {
 
 section.culinaryExcellence {
     display: flex;
-    margin: 144px 96px;
+    margin: min(20vw, 144px) min(10vw, 96px);
     flex-direction: row;
-    gap: 80px;
+    gap: min(8vw, 80px);
     justify-content: center;
     align-items: center;
     position: relative;
+}
+
+.culinaryExcellence img {
+    width: min(614px, 40vw);
 }
 
 .culinaryExcellence::before {
     content: '';
     display: block;
     position: absolute;
-    width: 298px;
+    width: 18rem;
     height: var(--base-size);
-    bottom: 0;
+    bottom: -2rem;
     right: 0;
     background-color: var(--color-orange);
 }
@@ -241,6 +284,7 @@ section.culinaryExcellence {
     position: relative;
     background: url('./images/family-dinner.webp');
     background-size: cover;
+    background-position: center;
 }
 
 .everyOccasionContent {
@@ -249,14 +293,14 @@ section.culinaryExcellence {
     gap: 32px;
     align-items: flex-start;
     position: absolute;
-    width: 667px;
-    left: 96px;
+    width: min(80vw, 667px);
+    left: min(96px, 10vw);
     bottom: 96px;
     color: white;
 }
 
 .menus {
-    margin: 144px 96px;
+    padding: min(20vw, 144px) min(10vw, 96px);
 }
 
 .menus h2 {
@@ -269,13 +313,13 @@ section.culinaryExcellence {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 80px;
+    gap: min(8vw, 80px);
 }
 
 .cardsContainer {
     position: relative;
-    height: 493px;
-    width: 563px;
+    width: min(40vw, 563px);
+    aspect-ratio: 563/493;
 }
 
 .cardsContainer > * {
@@ -283,25 +327,31 @@ section.culinaryExcellence {
 }
 
 .cardsContainer > img:nth-child(1) {
-    top: 36px;
+    top: 7.3%;
     right: 0;
     z-index: 3;
+    width: 66.785%;
+    height: auto;
 }
 
 .cardsContainer > img:nth-child(2) {
     bottom: 0;
-    right: 69px;
+    right: 14%;
     z-index: 2;
+    width: 66.785%;
+    height: auto;
 }
 
 .cardsContainer > img:nth-child(3) {
     top: 0;
     left: 0;
     z-index: 1;
+    width: 66.785%;
+    height: auto;
 }
 
 .menusContent {
-    width: 600px;
+    width: min(40vw, 600px);
     flex-grow: 1;
 }
 
@@ -310,7 +360,7 @@ section.culinaryExcellence {
 }
 
 .square {
-    width: 106px;
+    width: 18.828%;
     aspect-ratio: 1/1;
     bottom: 0;
     left: 0;
@@ -319,11 +369,17 @@ section.culinaryExcellence {
 
 .makeReservations {
     background: url('./images/friends-darken.webp');
+    background-position: center;
+    background-size: cover;
     color: white;
     display: flex;
-    padding: 144px 96px;
-    gap: 80px;
+    padding: min(9vw, 96px);
+    gap: min(8vw, 5rem);
     align-items: center;
+}
+
+.makeReservations img {
+    width: min(614px, 40vw);
 }
 
 .makeReservationsContent p {
@@ -331,52 +387,84 @@ section.culinaryExcellence {
     margin-bottom: 24px;
 }
 
+.makeREservationsContent {
+    flex: 1;
+}
+
 .stayConnected {
-    padding: 96px 96px;
+    padding: min(9vw, 96px);
     display: grid;
     grid-template-areas: "stayConnected socialIcons"
                         "newsletter newsletter";
-    gap: 80px;
-    place-content: center;
+    gap: min(8vw, 80px);
+    align-items: center;
     position: relative;
     overflow: hidden;
 }
 
 .stayConnectedContainer {
-    grid-area: "stayConnected";
+    grid-area: stayConnected;
+    position: relative;
+    z-index: 1;
 }
 
 .stayConnectedContent {
-    width: 536px;
+    width: 100%;
 }
 
 .socialIcons {
     display: flex;
-    gap: 32px;
-    width: 360px;
+    gap: min(5vw, 32px);
+    width: min(360px, 100vw);
     flex-wrap: wrap;
     justify-content: center;
-    grid-area: "socialIcons";
+    grid-area: socialIcons;
+}
+
+.socialIcons > * {
+    width: min(10vw, 96px);
+}
+
+.socialIcons > svg {
+    transition: transform 200ms ease-in,
+    filter 200ms ease-in;
+}
+
+.socialIcons > svg:hover {
+    filter: hue-rotate(-30deg);
+    transform: rotateZ(-30deg);
+}
+
+.newsletterContainer {
+    grid-area: newsletter;
+    position: relative;
+    z-index: 1;
 }
 
 .stayConnected h2, .newsletterContainer h3 {
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
 }
 
 .emailInput {
-    width: 600px;
-    font-size: 20px;
+    width: 100%;
+    font-size: 1.25rem;
     font-family: 'Chillax';
     padding: 12px 12ch 12px 24px;
-    margin-right: calc(-12ch + 2px);
     border-radius: 100px;
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
+.emailInput + .secondary {
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+}
+
 .yellowCircle, .orangeCircle {
-    width: 304px;
-    height: 304px;
+    width: min(30vw, 304px);
+    height: min(30vw, 304px);
     border-radius: 50%;
+    z-index: 0;
 }
 .orangeCircle {
     background-color: var(--color-orange);
@@ -400,6 +488,7 @@ section.culinaryExcellence {
     align-items: flex-end;
     justify-content: center;
     background-size: cover;
+    background-position: center;
 }
 
 .quote blockquote {
@@ -407,7 +496,7 @@ section.culinaryExcellence {
     flex-direction: column;
     gap: 32px;
     color: var(--color-white);
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 footer {
@@ -424,18 +513,19 @@ footer {
 
 .credits {
     display: flex;
-    padding: 96px;
+    padding: min(9vw, 96px);
     flex-direction: row;
+    gap: min(8vw, 40px);
     justify-content: space-between;
     align-items: center;
     background: url('./images/hotel-wallpaper-pattern.webp');
     background-repeat: repeat;
     background-position: center;
-    height: 70vh;
     position: fixed;
     bottom: 0;
     width: 100vw;
     z-index: -1;
+    height: 70vh;
 }
 
 .homePage {
@@ -452,13 +542,14 @@ footer {
 
 .credits .link {
     color: var(--color-dark-yellow);
+    --link-color: var(--color-dark-yellow);
     text-decoration: none;
 }
 
 .creditsContainer {
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: min(8vw, 80px);
     align-items: center;
 }
 
@@ -475,7 +566,7 @@ footer {
 
 .creditsLink {
     color: var(--color-dark-yellow);
-    font-size: 60px;
+    font-size: min(6vw, 60px);
     font-weight: 300;
     text-decoration: underline;
     cursor: pointer;
@@ -484,6 +575,14 @@ footer {
 .devSocialIcons {
     display: flex;
     gap: 24px;
+}
+
+.devSocialIcons svg {
+    transition: transform 200ms ease-in;
+}
+
+.devSocialIcons svg:hover {
+    transform: translateY(-0.5rem);
 }
 
 .socialIcons svg, .devSocialIcons svg {
@@ -953,8 +1052,128 @@ section.thankYou {
     margin-top: 64px;
 }
 
+footer .link::before {
+    content: none;
+}
+
 @keyframes scroll {
     to {
         transform: translateY(-50%);
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    :root {
+        font-size: 12px;
+    }
+
+    .stayConnected {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .socialIcons {
+        width: 100%;
+    }
+
+    .newsletterContainer {
+        width: 100%;
+    }
+
+    .credits {
+        flex-direction: column;
+        gap: 32px;
+        justify-content: center;
+    }
+
+    .sitemap {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+
+@media only screen and (max-width: 720px) {
+    nav {
+        flex-direction: column;
+        position: absolute;
+        width: 100vw;
+        top: 0;
+        right: 0;
+        min-height: 4.8rem;
+        padding: 2rem;
+    }
+
+    nav > button {
+        display: none;
+    }
+
+    nav.open {
+        background-color: white;
+    }
+
+    nav.open > button {
+        display: block;
+        color: black;
+    }
+
+    .hamburger-menu {
+        display: block;
+        width: 3rem;
+        height: 2.5rem;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .hamburger-menu::before, .hamburger-menu::after {
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 0.5rem;
+        position: absolute;
+        background-color: var(--color-orange);
+        border-radius: 50px;
+        transition: transform 300ms ease-in;
+    }
+    .hamburger-menu::before {
+        top: 0.3rem;
+    }
+    .hamburger-menu::after {
+        bottom: 0.3rem;
+    }
+    .hamburger-menu.open::before {
+        transform: rotate(315deg) translate(-0.48rem, 0.48rem);
+    }
+    .hamburger-menu.open::after {
+        transform: rotate(-135deg) translate(0.48rem, 0.48rem);
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .homePage section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menus {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .menusContainer {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .homePage section img, .menusContainer .cardsContainer, .menusContent  {
+        width: 100%;
     }
 }

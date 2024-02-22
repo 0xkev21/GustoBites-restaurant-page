@@ -10,6 +10,7 @@ import gustoBitesBlack from './images/gusto-bites-logo(black).png';
 const content = document.querySelector('#content');
 const nav = document.querySelector('nav');
 const header = document.querySelector('header');
+const burgerMenu = document.querySelector('.hamburger-menu');
 
 let isLogoAdded = false;
 displayHomePage();
@@ -28,6 +29,7 @@ function navigateOnClick(e) {
             document.body.className = 'homeActive';
             displayHomePage();
             window.scroll(0, 0);
+            removeNav();
             break;
 
         case 'Menu':
@@ -35,6 +37,7 @@ function navigateOnClick(e) {
             document.body.className = 'menuActive';
             displayMenuPage();
             window.scroll(0, 0);
+            removeNav();
             break;
         
         case 'About':
@@ -42,6 +45,7 @@ function navigateOnClick(e) {
             document.body.className = 'aboutActive';
             displayAboutPage();
             window.scroll(0, 0);
+            removeNav();
             break;
             
         case 'Contact':
@@ -49,6 +53,7 @@ function navigateOnClick(e) {
             document.body.className = 'contactActive';
             displayContactPage();
             window.scroll(0, 0);
+            removeNav();
             break;
 
         case 'Reservations':
@@ -56,7 +61,9 @@ function navigateOnClick(e) {
             document.body.className = 'reserveActive';
             displayReservePage();
             window.scroll(0, 0);
+            removeNav();
             break;
+        
     }
 }
 
@@ -145,6 +152,18 @@ window.addEventListener('scroll', () => {
         nav.classList.remove('active');
     };
 });
+
+// Mobile navigation bar 
+burgerMenu.addEventListener('click', () => {
+    burgerMenu.classList.toggle('open');
+    nav.classList.toggle('open');
+})
+
+// remove open nav
+function removeNav() {
+    burgerMenu.classList.remove('open');
+    nav.classList.remove('open');
+}
 
 // Check Header Logo
 function checkHeaderLogo() {
