@@ -197,10 +197,6 @@ nav.active .link {
     transition: color 300ms ease-in;
 }
 
-/* nav .link.active::before {
-    transform: scaleX(1);
-} */
-
 .hamburger-menu {
     display: none;
 }
