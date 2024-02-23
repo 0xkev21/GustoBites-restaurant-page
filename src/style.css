@@ -63,7 +63,7 @@ html {
 }
 
 .typeface {
-    font-size: clamp(1.5rem, 6vw, 5rem);
+    font-size: clamp(1.5rem, 5vw, 5rem);
     font-family: 'Giphurs';
     font-weight: bold;
 }
@@ -221,10 +221,10 @@ nav.active .link {
 }
 
 .homePage .typeface {
-    position: relative;
-    top: calc(100vh - 2lh - 96px);
-    left: min(96px, 5vw);
-    width: min(90vw, 1212px);
+    position: absolute;
+    bottom: min(96px, 9vw);
+    left: min(96px, 9vw);
+    width: min(80vw, 1212px);
 }
 
 .homePage .typeface .name {
@@ -550,6 +550,10 @@ footer {
     text-decoration: none;
 }
 
+.credits img[alt = "Gusto Bites Logo"] {
+    width: min(30vw, 160px);
+}
+
 .creditsContainer {
     display: flex;
     flex-direction: column;
@@ -601,8 +605,8 @@ footer {
 }
 
 .categories {
-    margin-left: 96px;
-    margin-right: 96px;
+    margin-left: min(96px, 9vw);
+    margin-right: min(96px, 9vw);
 }
 
 .menuPage h2 {
@@ -627,8 +631,8 @@ footer {
     position: absolute;
     top: -32px;
     left: -32px;
-    width: 72px;
-    height: 72px;
+    width: 4.5rem;
+    height: 4.5rem;
     border-radius: 4px 24px 4px 24px;
     background-color: var(--color-orange);
     z-index: -1;
@@ -644,8 +648,9 @@ footer {
 }
 
 .menuPage .cardContainer {
+    min-width: 200px;
     width: 384px;
-    height: 384px;
+    aspect-ratio: 1/1;
     overflow: hidden;
     position: relative;
     background-color: var(--color-black);
@@ -659,6 +664,7 @@ footer {
 }
 
 .cardContainer > p {
+    font-size: 1.25rem;
     font-weight: 500;
     line-height: 40px;
     top: 4px;
@@ -667,14 +673,31 @@ footer {
     z-index: 2;
 }
 
+.cardContainer > p::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0.2rem;
+    position: absolute;
+    bottom: 0;
+    transform: scaleX(0);
+    background-color: black;
+    transition-property: transform;
+    transform-origin: right;
+}
+
+.cardContainer.active p::before {
+    transform: scaleX(1);
+}
+
 .yellowRectangle {
     width: 40px;
     height: 40px;
     display: flex;
-    background-color: var(--color-yellow);
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: var(--color-yellow);
+    flex-direction: column;
     gap: 16px;
     z-index: 1;
     top: 0;
@@ -685,12 +708,16 @@ footer {
 .yellowRectangle > p {
     color: var(--color-black);
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.4;
     text-align: center;
     opacity: 0;
     margin: 0 24px;
     transition: opacity 300ms ease-in;
+}
+
+.yellowRectangle > p:first-of-type {
+    padding-top: 40px;
 }
 
 .orangeRectangle {
@@ -705,7 +732,7 @@ footer {
     transition-property: width, height;
 }
 
-.yellowRectangle, .orangeRectangle, .orangeRectangle img, .cardContainer > p {
+.yellowRectangle, .orangeRectangle, .orangeRectangle img, .cardContainer > p, .cardContainer > p::before {
     transition: 400ms ease-in;
 }
 
@@ -1068,8 +1095,9 @@ footer .link::before {
 }
 
 @media only screen and (max-width: 960px) {
+    
     :root {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .stayConnected {
@@ -1101,6 +1129,12 @@ footer .link::before {
 }
 
 @media only screen and (max-width: 720px) {
+
+    :root {
+        font-size: 12px;
+    }
+
+    
     nav {
         flex-direction: column;
         position: absolute;
