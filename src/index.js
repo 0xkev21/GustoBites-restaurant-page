@@ -26,42 +26,27 @@ function navigateOnClick(e) {
     switch (e.target.textContent) {
         case 'Home':
             console.log('HOme is clicked');
-            document.body.className = 'homeActive';
             displayHomePage();
-            window.scroll(0, 0);
-            removeNav();
             break;
 
         case 'Menu':
             console.log('menu is clicked');
-            document.body.className = 'menuActive';
             displayMenuPage();
-            window.scroll(0, 0);
-            removeNav();
             break;
         
         case 'About':
             console.log('about is clicked');
-            document.body.className = 'aboutActive';
             displayAboutPage();
-            window.scroll(0, 0);
-            removeNav();
             break;
             
         case 'Contact':
             console.log('contact is clicked');
-            document.body.className = 'contactActive';
             displayContactPage();
-            window.scroll(0, 0);
-            removeNav();
             break;
 
         case 'Reservations':
             console.log('reservations is clicked');
-            document.body.className = 'reserveActive';
             displayReservePage();
-            window.scroll(0, 0);
-            removeNav();
             break;
         
     }
@@ -69,6 +54,8 @@ function navigateOnClick(e) {
 
 // Home Page
 function displayHomePage() {
+
+    document.body.className = 'homeActive';
 
     if(!isLogoAdded) {
         const logoBlack = new Image();
@@ -89,10 +76,21 @@ function displayHomePage() {
     sitemap.addEventListener('click', (e) => {
         navigateOnClick(e);
     });
+
+    const exploreButton = document.querySelector('.exploreNow');
+    exploreButton.addEventListener('click', () => displayMenuPage());
+
+    const reserveButton = document.querySelector('.reserveNow');
+    reserveButton.addEventListener('click', () => displayReservePage());
+
+    window.scroll(0, 0);
+    closeBurgerMenu();
 }
 
 // Menu Page
 function displayMenuPage() {
+
+    document.body.className = 'menuActive';
     
     // clear content div
     content.innerHTML = '';
@@ -114,34 +112,58 @@ function displayMenuPage() {
             this.classList.toggle('active');
         })
     });
+
+    window.scroll(0, 0);
+    closeBurgerMenu();
 }
 
 // About Page
 function displayAboutPage () {
+    
+    document.body.className = 'aboutActive';
+
     checkHeaderLogo();
     
     // clear content div
     content.innerHTML = '';
     content.appendChild(getAboutPage());
+
+    window.scroll(0, 0);
+    closeBurgerMenu();
 }
 
 // Contact Page
 function displayContactPage() {
+
+    document.body.className = 'contactActive';
+
     checkHeaderLogo();
 
     // clear content div
     content.innerHTML = '';
     content.appendChild(getContactPage());
     addScrollAnimation();
+
+    window.scroll(0, 0);
+    closeBurgerMenu();
+
+    window.scroll(0, 0);
+    closeBurgerMenu();
 }
 
 // Reserve Page
 function displayReservePage() {
+
+    document.body.className = 'reserveActive';
+
     checkHeaderLogo();
 
     // clear content div
     content.innerHTML = '';
     content.appendChild(getReservePage());
+
+    window.scroll(0, 0);
+    closeBurgerMenu();
 }
 
 // Dynamic nav bar
@@ -160,7 +182,7 @@ burgerMenu.addEventListener('click', () => {
 })
 
 // remove open nav
-function removeNav() {
+function closeBurgerMenu() {
     burgerMenu.classList.remove('open');
     nav.classList.remove('open');
 }

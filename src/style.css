@@ -146,7 +146,7 @@ button {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 0.2rem;
+    height: 10%;
     border-radius: 2rem;
     background-color: var(--link-color);
     transform: scaleX(0);
@@ -166,7 +166,7 @@ header {
     position: relative;
 }
 
-img[alt = "Gusto Bites Logo"] {
+header img[alt = "Gusto Bites Logo"] {
     padding-left: 1.5rem;
     width: min(30vw, 160px);
 }
@@ -210,6 +210,7 @@ nav.active .link {
 .contactActive nav > button.link,
 .reserveActive nav > button.link {
     color: var(--color-black);
+    --link-color: var(--color-black);
     font-weight: 500;
 }
 
@@ -280,7 +281,7 @@ section.culinaryExcellence {
 }
 
 .everyOccasion {
-    height: 800px;
+    height: min(70vh, 800px);
     position: relative;
     background: url('./images/family-dinner.webp');
     background-size: cover;
@@ -414,29 +415,34 @@ section.culinaryExcellence {
 
 .socialIcons {
     display: flex;
-    gap: min(5vw, 32px);
+    gap: min(5vw, 24px);
     width: min(360px, 100vw);
     flex-wrap: wrap;
     justify-content: center;
     grid-area: socialIcons;
 }
 
-.socialIcons > * {
-    width: min(10vw, 96px);
+.socialIcons a {
+    width: min(16vw, 96px);
+    display: inline-block;
+    aspect-ratio: 1/1;
 }
 
-.socialIcons > svg {
+.socialIcons svg {
+    width: 100%;
+    height: 100%;
     transition: transform 200ms ease-in,
     filter 200ms ease-in;
 }
 
-.socialIcons > svg:hover {
-    filter: hue-rotate(-30deg);
+.socialIcons svg:hover {
+    filter: hue-rotate(-30deg) brightness(0.8);
     transform: rotateZ(-30deg);
 }
 
 .newsletterContainer {
     grid-area: newsletter;
+    width: min(100%, 640px);
     position: relative;
     z-index: 1;
 }
@@ -447,17 +453,19 @@ section.culinaryExcellence {
 
 .emailInput {
     width: 100%;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-family: 'Chillax';
-    padding: 12px 12ch 12px 24px;
+    padding: .75rem 14ch 0.75rem 1.5rem;
     border-radius: 100px;
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .emailInput + .secondary {
+    font-size: 1rem;
     position: absolute;
-    right: 1px;
-    bottom: 1px;
+    right: .0625rem;
+    padding: .75rem 1.5rem;
+    bottom: .0625rem;
 }
 
 .yellowCircle, .orangeCircle {
@@ -483,7 +491,7 @@ section.culinaryExcellence {
     text-align: center;
     height: 669px;
     background: url('./images/quote-section-bg.webp');
-    padding: 96px;
+    padding: min(9vw, 96px);
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -578,6 +586,7 @@ footer {
 }
 
 .devSocialIcons svg {
+    width: min(12vw, 96px);
     transition: transform 200ms ease-in;
 }
 
@@ -776,8 +785,8 @@ footer {
 
 #ourStory .gustoBitesLogoBlack {
     position: absolute;
-    top: 16px;
-    left: -8px;
+    top: 3.704%;
+    left: 3.704%;
     opacity: 75%;
 }
 
