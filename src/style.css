@@ -210,6 +210,10 @@ nav.active .link {
     font-weight: 500;
 }
 
+.content {
+    margin-top: 20px;
+}
+
 .heroSection {
     background: url('./images/hero-section-bg.webp');
     height: 100vh;
@@ -277,7 +281,7 @@ section.culinaryExcellence {
 }
 
 .everyOccasion {
-    height: min(70vh, 800px);
+    height: min(70vh, 1000px);
     position: relative;
     background: url('./images/family-dinner.webp');
     background-size: cover;
@@ -292,7 +296,7 @@ section.culinaryExcellence {
     position: absolute;
     width: min(80vw, 667px);
     left: min(96px, 10vw);
-    bottom: 96px;
+    bottom: min(9vw, 96px);
     color: white;
 }
 
@@ -782,13 +786,14 @@ footer {
 }
 
 #ourStory {
-    padding: 48px 96px;
+    padding: min(4vw, 48px) min(7vw, 96px);
 }
 
 #ourStory .storyWelcome {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row !important;
 }
 
 .storyWelcomeAssets {
@@ -798,29 +803,53 @@ footer {
 .storyWelcomeAssets::before {
     content: '';
     background-color: var(--color-yellow);
-    width: 80px;
-    height: 80px;
+    width: min(8vw, 80px);
+    height: min(8vw, 80px);
     position: absolute;
-    top: -40px;
-    right: -40px;
+    top: max(-4vw, -40px);
+    right: max(-4vw, -40px);
     border-radius: 40px;
 }
 
+#ourStory {
+    margin-top: 40px;
+}
+
+#ourStory .storyWelcomeAssets > * {
+    max-width: 100%;
+    min-width: 80px;
+}
+
 #ourStory .gustoBitesLogoBlack {
+    min-width: calc(80px - 2*3.704%);
+    width: calc(100% - 2*3.704%);
     position: absolute;
     top: 3.704%;
     left: 3.704%;
-    opacity: 75%;
+    opacity: 60%;
+    transition: opacity 200ms ease-in;
 }
 
-#ourStory section[class^="story"] {
-    margin-bottom: 96px;
+#ourStory .gustoBitesLogoBlack:hover {
+    opacity: 100%;
+}
+
+.aboutPage section[class^="story"] {
+    margin-bottom: min(9vw, 96px);
     display: flex;
-    gap: 80px;
+    gap: min(8vw, 80px);
 }
 
-#ourStory section[class^="story"]:nth-of-type(2n+3) {
+.aboutPage section[class^="story"]:nth-of-type(2n+3) {
     flex-direction: row-reverse;
+}
+
+section[class^="story"] img {
+    min-width: 240px;
+    align-self: center;
+    width: 100%;
+    height: auto;
+    flex-grow: 1;
 }
 
 #ourStory h4 {
@@ -830,20 +859,22 @@ footer {
 #ourStory section [class$="Content"] {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: min(4vw, 32px);
     position: sticky;
-    top: 68px;
+    top: min(7vw, 68px);
     align-self: flex-start;
-    margin: 40px 0;
+    margin: min(4vw, 40px) 0;
+    font-size: 1.25rem;
 }
 
 #ourStory .typeface {
     color: var(--color-orange);
+    white-space: nowrap;
 }
 
 #ourStory .bigWord {
     color: var(--color-orange);
-    font-size: 2.25rem;
+    font-size: min(4vw, 2.25rem);
     font-weight: 600;
 }
 
@@ -860,32 +891,46 @@ footer {
     background: url('./images/friends-darken.webp');
     color: var(--color-white);
     background-size: cover;
+    background-position: center;
     justify-content: center;
     margin-bottom: 0 !important;
+    margin: 0;
+}
+
+#ourStory span {
+    white-space: nowrap;
 }
 
 .storyCommunityContent {
     position: static !important;
-    width: 640px;
+    width: min(90%, 640px);
     align-self: center !important;
     align-items: center;
     justify-content: center;
     text-align: center;
+    background-color: transparent !important;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none !important;
 }
 
 section.thankYou {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
+    padding: 1rem;
     background-color: var(--color-dark-yellow);
     color: var(--color-white);
 }
 
+.thankYouContent {
+    background-color: transparent !important;
+    margin-bottom: .5rem;
+}
+
 .svgWave {
     width: 100%;
-    margin-top: 96px;
-    margin-bottom: -40px;
+    margin-top: min(9vw, 96px);
+    margin-bottom: min(-4vw, -4px);
 }
 
 #chefProfile {
@@ -895,35 +940,44 @@ section.thankYou {
 
 #chefProfile h2 {
     text-align: center;
-    margin-bottom: 64px;
+    margin-bottom: min(6vw, 64px);
 }
 
 .chefProfileContainer {
     display: flex;
-    gap: 80px;
-    padding: 0 96px;
+    gap: min(8vw, 80px);
+    padding: 0 min(9vw, 96px);
     align-items: flex-start;
 }
 
 .chefPortraitContainer {
     position: sticky;
-    top: 72px;
+    top: min(7vw, 72px);
     display: flex;
     align-items: center;
-    width: 616px;
+    max-width: 600px;
+    min-width: 240px;
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.chefPortraitContainer img {
+    height: 100%;
+    width: 100%;
 }
 
 .chefPortraitContainer > div.yellowRectangle {
-    width: 534px;
-    height: 310px;
+    width: 96.39%;
+    height: 44.476%;
     border-radius: 80px 144px 20px 40px;
     position: absolute;
-    top: calc(100% - 310px);
-    left: calc(100% - 534px);
+    top: calc(100% - 44.476%);
+    left: calc(100% - 96.39%);
 }
 .chefPortraitContainer > div.orangeRectangle {
-    width: 470px;
-    height: 476px;
+    width: 84.838%;
+    height: 68.293%;
     border-radius: 40px 170px 150px 50px;
     position: absolute;
     top: 0;
@@ -939,8 +993,8 @@ section.thankYou {
 }
 
 .chefProfileContent {
+    max-width: 800px;
     display: flex;
-    flex: 1;
     flex-direction: column;
     gap: 50vh;
 }
@@ -948,16 +1002,17 @@ section.thankYou {
 .chefProfileContent [class^="chef"] {
     display: flex;
     height: 600px;
-    gap: 32px;
+    gap: min(3vw, 32px);
     flex-direction: column;
-    margin: 40px 0;
+    margin: min(4vw, 40px) 0;
 }
 
 .chefInvitation, .contactLookForward {
-    padding: 64px 0;
+    padding: min(6vw, 64px) 0;
     margin: auto;
     text-align: center;
     width: 50%;
+    min-width: 264px;
 }
 
 .contactContainer {
@@ -1133,7 +1188,6 @@ footer .link::before {
     :root {
         font-size: 12px;
     }
-
     
     nav {
         flex-direction: column;
@@ -1143,6 +1197,10 @@ footer .link::before {
         right: 0;
         min-height: 4.8rem;
         padding: 2rem;
+    }
+
+    nav > .link {
+        --link-color: var(--color-black);
     }
 
     nav > button {
@@ -1214,5 +1272,59 @@ footer .link::before {
 
     .homePage section img, .menusContainer .cardsContainer, .menusContent  {
         width: 100%;
+    }
+
+    #ourStory section[class^="story"] {
+        flex-direction: column-reverse;
+    }
+
+    #ourStory section [class$="Content"] {
+        position: relative;
+        top: 0;
+    }
+
+    #ourStory section img {
+        position: sticky;
+        top: min(7vw, 68px);
+    }
+
+    section.thankYou {
+        flex-direction: column;
+    }
+
+    .chefProfileContainer {
+        flex-direction: column;
+    }
+
+    .chefPortraitContainer {
+        max-width: 300px;
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+    }
+
+    .chefProfileContent {
+        gap: 200px;
+    }
+
+    .chefProfileContent section[class^="chef"] {
+        height: auto;
+    }
+
+    #ourStory section [class$="Content"] {
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(6px);
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 0;
+        padding: 0.75rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    :root {
+        font-size: 10px;
+    }
+    .chefPortraitContainer {
+        max-width: 100%;
     }
 }
