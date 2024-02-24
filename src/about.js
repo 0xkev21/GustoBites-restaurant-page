@@ -97,10 +97,12 @@ chefProfile.setAttribute('id', 'chefProfile');
 chefProfile.innerHTML = `
     <h2>Chef Profile</h2>
     <div class="chefProfileContainer">
-        <div class="chefPortraitContainer">
-            <img src="${chefPortrait}" alt="Chef Portrait Photo">
-            <div class="yellowRectangle"></div>
-            <div class="orangeRectangle"></div>
+        <div class="chefPortraitWrapper">
+            <div class="chefPortraitContainer">
+                <img src="${chefPortrait}" alt="Chef Portrait Photo">
+                <div class="yellowRectangle"></div>
+                <div class="orangeRectangle"></div>
+            </div>
         </div>
         <div class="chefProfileContent">
             <section class="chefBriefInfo">

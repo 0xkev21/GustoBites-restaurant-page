@@ -63,7 +63,7 @@ html {
 }
 
 .typeface {
-    font-size: clamp(1.5rem, 5vw, 5rem);
+    font-size: clamp(2rem, 8vw, 5rem);
     font-family: 'Giphurs';
     font-weight: bold;
 }
@@ -233,6 +233,7 @@ nav.active .link {
 
 .homePage .typeface .name {
     position: relative;
+    white-space: nowrap;
 }
 
 .homePage .typeface .name::before {
@@ -615,7 +616,7 @@ footer {
 
 .menuPage h2 {
     text-align: center;
-    margin-top: 32px;
+    margin-top: 48px;
 }
 
 .menuPage h3 {
@@ -950,16 +951,23 @@ section.thankYou {
     align-items: flex-start;
 }
 
-.chefPortraitContainer {
+.chefPortraitWrapper {
     position: sticky;
     top: min(7vw, 72px);
+    padding-top: 32px;
     display: flex;
-    align-items: center;
-    max-width: 600px;
-    min-width: 240px;
-    overflow: hidden;
+    justify-content: center;
     flex-grow: 1;
     flex-shrink: 1;
+}
+
+.chefPortraitContainer {
+    max-width: 600px;
+    min-width: 240px;
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .chefPortraitContainer img {
@@ -1016,18 +1024,19 @@ section.thankYou {
 }
 
 .contactContainer {
-    padding: 0 96px;
+    padding: 0 min(9vw, 96px);
 }
 
 .contactPage h2 {
     text-align: center;
-    margin: 48px 0;
+    margin: min(5vw, 48px) 0;
+    margin-top: 40px;
 }
 
 .contactContainer {
     display: flex;
     justify-content: space-between;
-    gap: 80px;
+    gap: min(8vw, 80px);
 }
 
 .contactContentContainer {
@@ -1035,14 +1044,14 @@ section.thankYou {
 }
 
 .contactContainer h6 {
-    margin-top: 32px;
+    margin-top: min(4vw, 32px);
 }
 
 .scrollerContainer {
     flex-basis: calc(320px + 48px);
     padding: 0 24px;
     background-color: var(--color-orange);
-    height: calc(100vh + 80px);
+    height: min(100vh, 840px);
     overflow: scroll;
 }
 
@@ -1085,31 +1094,32 @@ section.thankYou {
 .reservePage form {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: min(4vw, 40px);
     align-items: center;
 }
 
 .openingHours {
     display: flex;
-    gap: 32px;
+    gap: min(3vw, 32px);
     justify-content: space-between;
     background-color: var(--color-yellow);
-    padding: 16px;
-    border-radius: 16px;
-    width: 45vw;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: min(700px , 80vw);
 }
 
 .inputsContainer {
-    width: 45vw;
+    width: min(700px, 80vw);
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    align-items: center;
+    gap: min(3vw, 32px);
 }
 
 .inputsContainer div {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: min(3vw, 32px);
     justify-content: flex-end;
     width: 100%;
 }
@@ -1181,6 +1191,33 @@ footer .link::before {
         justify-content: center;
     }
 
+    .contactContainer {
+        flex-direction: column-reverse;
+    }
+
+    .scrollerContainer {
+        flex-basis: 120px;
+        padding: min(2.5vw, 24px) 0;
+        background-color: var(--color-orange);
+        overflow: scroll;
+    }
+
+    .scrollingMenu {
+        display: flex;
+        gap: 0;
+        flex-direction: row;
+    }
+
+    .scrollingMenu img {
+        height: 100%;
+        width: calc(120px - min(48px, 5vw));
+    }
+
+    @keyframes scroll {
+        to {
+            transform: translateX(-50%);
+        }
+    }
 }
 
 @media only screen and (max-width: 720px) {
@@ -1296,10 +1333,15 @@ footer .link::before {
         flex-direction: column;
     }
 
-    .chefPortraitContainer {
-        max-width: 300px;
+    .chefPortraitWrapper {
+        width: 100%;
         -webkit-backdrop-filter: blur(2px);
         backdrop-filter: blur(2px);
+    }
+
+    .chefPortraitContainer {
+        min-width: 160px;
+        width: 160px;
     }
 
     .chefProfileContent {
@@ -1308,6 +1350,10 @@ footer .link::before {
 
     .chefProfileContent section[class^="chef"] {
         height: auto;
+    }
+
+    .chefProfileContent section[class^="chef"]:last-of-type {
+        margin-bottom: 200px;
     }
 
     #ourStory section [class$="Content"] {
@@ -1324,7 +1370,31 @@ footer .link::before {
     :root {
         font-size: 10px;
     }
-    .chefPortraitContainer {
-        max-width: 100%;
+
+    .reservePage {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inputsContainer div {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .inputsContainer label {
+        flex-basis: 0;
+    }
+
+    .inputsContainer input {
+        align-self: stretch;
+    }
+
+    .openingHours {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 }
