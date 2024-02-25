@@ -14,7 +14,8 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            favicon: './src/images/gusto-bites-fav.ico'
         }),
     ],
     module: {

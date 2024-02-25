@@ -20,11 +20,11 @@ export default function getReservePage() {
                 </div>
                 <div class="Date">
                     <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" placeholder="">
+                    <input type="date" id="date" name="date" placeholder="" min="${new Date().toISOString().split('T')[0]}">
                 </div>
                 <div class="time">
                     <label for="time">Time:</label>
-                    <input type="time" id="time" name="time" placeholder="3">
+                    <input type="time" id="time" name="time" placeholder="Time" min="10:00:00" max="22:00:00">
                 </div>
             </div>
             <button type="button" class="primary">Reserve Now</button>
