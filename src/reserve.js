@@ -16,7 +16,7 @@ export default function getReservePage() {
             <div class="inputsContainer">
                 <div class="numberOfPeople">
                     <label for="numberOfPeople">Number of People:</label>
-                    <input type="number" id="numberOfPeople" name="number-of-people" placeholder="3">
+                    <input type="number" id="numberOfPeople" name="number-of-people" placeholder="1" min="1" max="40" value="1">
                 </div>
                 <div class="Date">
                     <label for="date">Date:</label>
